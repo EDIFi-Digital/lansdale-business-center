@@ -1,0 +1,59 @@
+{
+  "slug": "pb-a-ground-level-shop-studio",
+  "name": "PB-A Ground Level Shop Studio",
+  "price": "$1335/mo",
+  "main_image": "/images/All-smiles---almost-p-1080.jpg",
+  "thumb_image": "/images/All-smiles---almost-p-500.jpg",
+  "gallery_images": [
+    {
+      "image": "/images/All-smiles---almost-p-1080.jpg"
+    },
+    {
+      "image": "/images/All-smiles---almost-p-800.jpg"
+    }
+  ],
+  "status": "available",
+  "date": "2025-10-29T20:39:29.304Z",
+  "overview": "Ground level shop studio with excellent natural light and accessibility",
+  "filename": "pb-a-ground-level-shop-studio.md",
+  "related": [
+    {
+      "slug": "112-first-floor-office",
+      "name": "(#112) First Floor Office",
+      "price": "$485",
+      "main_image": "/images/023-p-1080.jpg",
+      "thumb_image": "/images/023-p-500.jpg",
+      "gallery_images": [
+        {
+          "image": "/images/023-p-1080.jpg"
+        },
+        {
+          "image": "/images/023-p-800.jpg"
+        }
+      ],
+      "status": "available",
+      "date": "2025-10-29T20:39:29.304Z",
+      "overview": "Professional first floor office space ideal for small businesses",
+      "filename": "112-first-floor-office.md"
+    },
+    {
+      "slug": "platform",
+      "name": "Platform",
+      "price": "$775",
+      "main_image": "/images/Barn-Door-Slider-1-2025-p-1080.jpg",
+      "thumb_image": "/images/Barn-Door-Slider-1-2025-p-500.jpg",
+      "gallery_images": [
+        {
+          "image": "/images/Barn-Door-Slider-1-2025-p-1080.jpg"
+        },
+        {
+          "image": "/images/Barn-Door-Slider-1-2025-p-800.jpg"
+        }
+      ],
+      "status": "available",
+      "date": "2025-10-29T20:39:29.302Z",
+      "overview": "Spacious platform area perfect for creative work and storage",
+      "filename": "platform.md"
+    }
+  ]
+}

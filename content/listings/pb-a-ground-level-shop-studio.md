@@ -7,7 +7,7 @@ gallery_images:
   - image: "/images/All-smiles---almost-p-1080.jpg"
   - image: "/images/All-smiles---almost-p-800.jpg"
 status: "available"
-date: "2025-10-29T19:48:41.887Z"
+date: "2025-10-29T20:39:29.304Z"
 ---
 
 Ground level shop studio with excellent natural light and accessibility
