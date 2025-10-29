@@ -8,14 +8,24 @@ This project integrates Decap CMS (formerly Netlify CMS) with a static site expo
 ├── admin/                    # Decap CMS admin interface
 │   ├── index.html           # CMS admin page
 │   └── config.yml           # CMS configuration
+├── api/                     # Generated JSON API endpoints
+│   ├── listings.json        # All listings data
+│   └── {slug}.json         # Individual property data
 ├── content/listings/        # Markdown files for property listings
 ├── data/                    # CSV data for seeding content
 │   └── export.csv          # Property data export
 ├── images/uploads/          # CMS uploaded images
+├── js/                      # JavaScript files
+│   ├── cms-loader.js       # Loads CMS content into pages
+│   ├── property-data.js    # Generated property data
+│   └── property-detail-loader.js # Loads individual property details
 ├── scripts/                 # Build scripts
-│   └── seed-content.js     # CSV to markdown converter
+│   ├── seed-content.js     # CSV to markdown converter
+│   └── build-api.js        # Generates API endpoints from content
 ├── templates/              # HTML templates
 │   └── listing-template.html # Property listing templates
+├── detail_properties.html  # Dynamic property detail page
+├── spaces.html             # Property listings page
 └── package.json            # Dependencies and scripts
 ```
 
@@ -107,7 +117,16 @@ npm run dev
 npm run build
 ```
 
-The build script runs `seed-content.js` to process any CSV updates before deployment.
+The build script:
+1. Runs `seed-content.js` to process CSV updates
+2. Runs `build-api.js` to generate JSON API endpoints
+3. Creates `/js/property-data.js` for client-side access
+
+### Individual Scripts
+```bash
+npm run seed        # Process CSV and generate markdown
+npm run build-api   # Generate API endpoints from markdown
+```
 
 ## 📁 File Management
 
@@ -121,6 +140,23 @@ The build script runs `seed-content.js` to process any CSV updates before deploy
 - Listings beyond 6 will be ignored during seeding
 
 ## 🎯 Customization
+
+### Dynamic Detail Page
+The `detail_properties.html` page automatically loads property data based on URL parameters:
+
+- **URL Format**: `detail_properties.html?property={slug}`
+- **Data Loading**: Uses generated `/js/property-data.js` or `/api/{slug}.json`
+- **Fallback**: Hardcoded data for development
+
+**Example URLs**:
+- `detail_properties.html?property=platform`
+- `detail_properties.html?property=pb-a-ground-level-shop-studio`
+
+### Property Cards
+Property cards in `spaces.html` automatically link to the detail page:
+```html
+<a href="detail_properties.html?property=platform">Platform</a>
+```
 
 ### Adding Fields
 1. Update `/admin/config.yml` collections section

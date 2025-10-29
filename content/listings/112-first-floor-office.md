@@ -7,7 +7,7 @@ gallery_images:
   - image: "/images/023-p-1080.jpg"
   - image: "/images/023-p-800.jpg"
 status: "available"
-date: "2025-10-29T19:48:41.888Z"
+date: "2025-10-29T20:39:29.304Z"
 ---
 
 Professional first floor office space ideal for small businesses

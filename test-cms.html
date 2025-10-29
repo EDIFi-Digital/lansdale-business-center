@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMS Test Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .property-card { border: 1px solid #ddd; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .property-card img { max-width: 200px; height: auto; }
+        .button { display: inline-block; padding: 10px 20px; background: #007cba; color: white; text-decoration: none; border-radius: 4px; margin: 10px 0; }
+        .api-data { background: #f5f5f5; padding: 15px; border-radius: 4px; margin: 20px 0; }
+        pre { white-space: pre-wrap; word-break: break-word; }
+    </style>
+</head>
+<body>
+    <h1>Lansdale Business Center - CMS Test</h1>
+    
+    <h2>🎯 Dynamic Property Links</h2>
+    <p>Test the dynamic detail page functionality:</p>
+    
+    <div class="property-card">
+        <h3>Platform</h3>
+        <p>Price: $775</p>
+        <a href="detail_properties.html?property=platform" class="button">View Platform Details</a>
+    </div>
+    
+    <div class="property-card">
+        <h3>PB-A Ground Level Shop Studio</h3>
+        <p>Price: $1,335/mo</p>
+        <a href="detail_properties.html?property=pb-a-ground-level-shop-studio" class="button">View Studio Details</a>
+    </div>
+    
+    <div class="property-card">
+        <h3>(#112) First Floor Office</h3>
+        <p>Price: $485</p>
+        <a href="detail_properties.html?property=112-first-floor-office" class="button">View Office Details</a>
+    </div>
+    
+    <h2>📊 Generated API Data</h2>
+    <p>The build process generated the following API endpoints:</p>
+    
+    <div class="api-data">
+        <h4>Available Endpoints:</h4>
+        <ul>
+            <li><a href="api/listings.json" target="_blank">/api/listings.json</a> - All listings</li>
+            <li><a href="api/platform.json" target="_blank">/api/platform.json</a> - Platform details</li>
+            <li><a href="api/pb-a-ground-level-shop-studio.json" target="_blank">/api/pb-a-ground-level-shop-studio.json</a> - Studio details</li>
+            <li><a href="api/112-first-floor-office.json" target="_blank">/api/112-first-floor-office.json</a> - Office details</li>
+            <li><a href="js/property-data.js" target="_blank">/js/property-data.js</a> - Client-side data</li>
+        </ul>
+    </div>
+    
+    <h2>🔧 Quick Actions</h2>
+    <a href="spaces.html" class="button">View Spaces Page</a>
+    <a href="admin/" class="button">Access CMS Admin</a>
+    <a href="README-CMS.md" class="button">View Documentation</a>
+    
+    <h2>📝 Testing Instructions</h2>
+    <ol>
+        <li><strong>Test Dynamic Pages</strong>: Click the "View Details" buttons above</li>
+        <li><strong>Check Data Loading</strong>: Open browser dev tools and watch for API calls</li>
+        <li><strong>Test CMS</strong>: Access the admin panel (requires Netlify deployment)</li>
+        <li><strong>Verify Build</strong>: Run <code>npm run build</code> to regenerate content</li>
+    </ol>
+    
+    <h2>🚀 Next Steps</h2>
+    <ol>
+        <li>Deploy to Netlify</li>
+        <li>Enable Netlify Identity</li>
+        <li>Configure Git Gateway</li>
+        <li>Test CMS functionality</li>
+        <li>Update property data via CMS</li>
+    </ol>
+    
+    <div class="api-data">
+        <h4>🎨 Integration Notes:</h4>
+        <ul>
+            <li>Property cards automatically link to <code>detail_properties.html?property={slug}</code></li>
+            <li>Detail page loads data from <code>/js/property-data.js</code> or API endpoints</li>
+            <li>Gallery images, pricing, and content update dynamically</li>
+            <li>SEO meta tags update based on property data</li>
+            <li>Maximum 6 properties supported (configurable)</li>
+        </ul>
+    </div>
+</body>
+</html>

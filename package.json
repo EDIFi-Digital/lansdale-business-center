@@ -4,9 +4,10 @@
   "description": "Lansdale Business Center website with Decap CMS",
   "main": "index.html",
   "scripts": {
-    "build": "node scripts/seed-content.js",
+    "build": "node scripts/seed-content.js && node scripts/build-api.js",
     "dev": "npm run build && npx http-server . -p 8080",
-    "seed": "node scripts/seed-content.js"
+    "seed": "node scripts/seed-content.js",
+    "build-api": "node scripts/build-api.js"
   },
   "dependencies": {
     "csv-parser": "^3.0.0",

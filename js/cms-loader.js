@@ -55,10 +55,11 @@ class PropertyListingsLoader {
   renderPropertyCard(listing, isLeased = false) {
     const cardClass = isLeased ? 'property-card leased' : 'property-card';
     const imageClass = isLeased ? 'cover-image spaces-leased' : 'cover-image on-spaces-page';
+    const linkUrl = isLeased ? '#' : `detail_properties.html?property=${listing.slug}`;
     
     return `
       <div id="listing-${listing.slug}" role="listitem" class="w-dyn-item ${isLeased ? 'for-leased-space' : ''}">
-        <a data-w-id="${this.generateId()}" href="property-${listing.slug}.html" class="${cardClass} w-inline-block">
+        <a data-w-id="${this.generateId()}" href="${linkUrl}" class="${cardClass} w-inline-block">
           <div class="property-card-top ${isLeased ? 'leased' : ''}">
             <img src="${listing.thumb_image}" loading="lazy" alt="${listing.name}" class="${imageClass}">
           </div>
