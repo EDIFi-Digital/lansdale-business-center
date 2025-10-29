@@ -1,0 +1,116 @@
+<!-- 
+  HTML Template Snippet for Property Listings
+  
+  This snippet shows how to render property listings from the CMS data.
+  You'll need to integrate this with your build process or JavaScript to load the markdown files.
+-->
+
+<!-- Available Spaces Section -->
+<div class="w-layout-blockcontainer container properties-list-hompage spaces-page w-container">
+  <div data-w-id="d83722f2-7e64-a9b7-9133-4d7ee6f2f2ff" style="opacity:0" class="property-wrap">
+    <div data-w-id="eb36ffa5-aa28-54a2-c800-51e0379c60e9" style="opacity:0" class="lynx-newsletter _2 spaces-page">
+      <div class="section-heading property-leased spaces-page">
+        <h2 class="leased spaces-page">Available Spaces</h2>
+      </div>
+      <p class="about-big-text history">
+        <strong class="bold-text-8">Let us help you find your </strong>
+        <em>perfect match</em>
+        <strong class="bold-text-8"> - </strong>
+        <a href="contact.html"><strong class="bold-text-8">Right Here!</strong></a>
+      </p>
+    </div>
+    
+    <!-- Dynamic available spaces here -->
+    <div class="w-dyn-list">
+      <div role="list" class="property-bottom w-dyn-items">
+        
+        <!-- Repeat this block for each available listing -->
+        <div id="listing-{{ slug }}" role="listitem" class="w-dyn-item">
+          <a data-w-id="d83722f2-7e64-a9b7-9133-4d7ee6f2f306" href="property-{{ slug }}.html" class="property-card w-inline-block">
+            <div class="property-card-top">
+              <img src="{{ thumb_image }}" loading="lazy" alt="{{ name }}" class="cover-image on-spaces-page">
+            </div>
+            <div class="property-card-bottom">
+              <div class="property-card-data">
+                <div class="text-block-4">{{ name }}</div>
+                <div class="body-small">{{ price }}</div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- End repeat block -->
+        
+      </div>
+      <div class="empty-state w-dyn-empty">
+        <div>No available properties found.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Property Detail Page Template -->
+<!-- Use this structure for individual property pages -->
+<div class="property-detail-page">
+  <div class="property-hero">
+    <img src="{{ main_image }}" alt="{{ name }}" class="property-main-image">
+    <div class="property-info">
+      <h1>{{ name }}</h1>
+      <div class="price">{{ price }}</div>
+    </div>
+  </div>
+  
+  <div class="property-content">
+    <div class="property-overview">
+      {{ overview }} <!-- This will be rendered markdown -->
+    </div>
+    
+    <div class="property-gallery">
+      <h3>Gallery</h3>
+      <div class="gallery-grid">
+        <!-- Repeat for each gallery image -->
+        <img src="{{ gallery_image }}" alt="{{ name }} - Gallery Image" class="gallery-image">
+        <!-- End repeat -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
+  JavaScript Example for Loading CMS Data
+  
+  You'll need to implement a build process or client-side JavaScript to:
+  1. Read the markdown files from /content/listings/
+  2. Parse the frontmatter
+  3. Render the HTML using the template above
+  
+  Example with JavaScript:
+  
+  async function loadListings() {
+    // This would need to be implemented based on your build process
+    const listings = await fetch('/api/listings').then(r => r.json());
+    
+    listings.filter(l => l.status === 'available').forEach(listing => {
+      // Render each listing using the template
+      const html = renderListingCard(listing);
+      document.getElementById('listings-container').innerHTML += html;
+    });
+  }
+  
+  function renderListingCard(listing) {
+    return `
+      <div id="listing-${listing.slug}" role="listitem" class="w-dyn-item">
+        <a href="property-${listing.slug}.html" class="property-card w-inline-block">
+          <div class="property-card-top">
+            <img src="${listing.thumb_image}" loading="lazy" alt="${listing.name}" class="cover-image on-spaces-page">
+          </div>
+          <div class="property-card-bottom">
+            <div class="property-card-data">
+              <div class="text-block-4">${listing.name}</div>
+              <div class="body-small">${listing.price}</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    `;
+  }
+-->

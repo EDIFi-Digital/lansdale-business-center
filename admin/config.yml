@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "images/uploads" # Media files will be stored in the repo under images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "listings" # Used in routes, e.g., /admin/collections/listings
+    label: "Property Listings" # Used in the UI
+    folder: "content/listings" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Price", name: "price", widget: "string"}
+      - {label: "Overview", name: "overview", widget: "markdown"}
+      - {label: "Main Image", name: "main_image", widget: "image"}
+      - {label: "Thumbnail Image", name: "thumb_image", widget: "image"}
+      - label: "Gallery Images"
+        name: "gallery_images"
+        widget: "list"
+        field: {label: "Image", name: "image", widget: "image"}
+      - {label: "Status", name: "status", widget: "select", options: ["available", "leased"], default: "available"}
+      - {label: "Date Created", name: "date", widget: "datetime"}
